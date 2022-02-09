@@ -5,7 +5,7 @@ function selectionSort(array) {
 
     while (firstIdx < array.length - 1) {
         let smallIndex = smallestIndex(array, firstIdx);
-        swap(array, smallIndex, firstIdx);
+        swap (array, smallIndex, firstIdx);
         firstIdx++;
     }
 }
@@ -17,17 +17,16 @@ function swap(array, i, j) {
 }
 
 function smallestIndex(array, startIdx) {
-   let length = array.length;
-   let smallIdx = startIdx;
+    let length = array.length;
+    let smallIdx = startIdx;
 
-   for (let i = startIdx + 1; i < length; i++) {
-       if (array[smallIdx] > array[i]) {
-           smallIdx = i;
-       }
-   }
-   return smallIdx;
+    for (let i = startIdx + 1; i < length; i++) {
+        if(array[smallIdx] > array[i]) {
+            smallIdx = i;
+        }
+    }
+    return smallIdx;
 }
 
 selectionSort(myArray);
-console.log('new array:', myArray);
-
+console.log(myArray);
