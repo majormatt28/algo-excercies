@@ -7,9 +7,13 @@ function sortedSquareArray(array) {
     for(let i = 0; i < array.length; i++) {
         let smallValue = 0;
         let largeValue = array[array.length - 1];
+        // console.log({largeValue});
         let result = array[i] * array[i];
-        newArray.push(result);
-        console.log(newArray);
+        smallValue < largeValue;
+        newArray.unshift(result);
+        newArray.sort();
+        
+        console.log("what is the new array: ",newArray);
     }
     return newArray;
 }
