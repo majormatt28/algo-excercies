@@ -14,30 +14,60 @@ let grid4 = [ ["x","x","x"],
               [" ","x"," "],
               [" "," "," "] ];
 
+
+function computeNext(grid) {
+    let newGrid = new Array(grid.length).fill([]);
+
+    for (let i = 0; i < grid.length; i++) {
+        const row = grid[i];
+        for (let j = 0; j < row.length; j++) {
+            let numActiveCells = countActiveCell(grid, [i, j]);
+            let cell = row[j];
+            let isActive = isCellActive(cell);
+            console.log("this is active cells: ",numActiveCells);
+            console.log("this is a cell: ", cell);
+            console.log("is this active: ", isActive);
+            if (isActive && numActiveCells < 2) {
+                cell = " ";
+                console.log("this is turning the cell inactive: ", cell);
+            } 
+            console.log("before in newGrid: ", cell);
+            newGrid[i][j] = cell;
+        }
+    }
+    return newGrid;
+}
+
 function countActiveCell(grid, centerCell) {
     let counter = 0;
     for (let i = 0; i < grid.length; i++) {
         const row = grid[i];
-        counter = innerRow(centerCell, counter, row, i);
+        for (let j = 0; j < row.length; j++) {
+            const cell = row[j];
+            const thisCoordinate = [i, j];
+            const isCenterCell = areTheSame(centerCell, thisCoordinate );
+            const isNeighbor = areNeighbors(centerCell, thisCoordinate);
+            const isActive = isCellActive(cell); 
+            if (!isCenterCell && isNeighbor && isActive) {
+                counter++;
+            }
+        }
     }
     return counter;
 }
 
-function innerRow(centerCell, counter, row, i) {
-    let c = counter;
-    for (let j = 0; j < row.length; j++) {
-        const cell = row[j];
-        const thisCoordinate = [i, j];
-        const distVer = Math.abs(centerCell[0] - thisCoordinate[0]);
-        const distHor = Math.abs(centerCell[1] - thisCoordinate[1]);
-        const isCenterCell = centerCell[0] === thisCoordinate[0] && centerCell[1] === thisCoordinate[1];
-        const isNeighbor = distVer <= 1 && distHor <= 1;
-        const isActive = cell === "x"; 
-        if (!isCenterCell && isNeighbor && isActive) {
-            c++;
-        }
-    } 
-    return c;
+function areTheSame(a,b) {
+    return a[0] === b[0] && a[1] === b[1];  
+}
+
+function areNeighbors(c,d) {
+    const distVer = Math.abs(c[0] - d[0]);
+    const distHor = Math.abs(c[1] - d[1]);
+    return distVer <= 1 && distHor <= 1;
+}
+
+function isCellActive(e) {
+    return e === "x";
 }
 
 // function nextActiveNeighbor(grid, activeCell) {
@@ -72,7 +102,7 @@ function innerRow(centerCell, counter, row, i) {
 //     }
 // }
 
-console.log("The answer should be: ",countActiveCell(grid1, [0,0]));
-console.log("The answer should be: ",countActiveCell(grid2, [0,0]));
-console.log("The answer should be: ",countActiveCell(grid3, [0,0]));
-console.log("The answer should be: ",countActiveCell(grid4, [0,0]))
+// console.log("The answer should be: ",computeNext(grid1));
+console.log("The answer should be: ",computeNext(grid2));
+// console.log("The answer should be: ",computeNext(grid3));
+// console.log("The answer should be: ",computeNext(grid4));

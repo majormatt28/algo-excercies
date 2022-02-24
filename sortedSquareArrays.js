@@ -3,7 +3,7 @@ let myArray = [-4,1,2,3,5,6]
 // outcome = [1,4,9,16,25,36]
 
 function sortedSquareArray(array) {
-    const results = new Array(array.length);
+    const results = [];
     let smallerIndex = 0;
     let largerIndex = array.length - 1;
     for(let i = array.length - 1; i >= 0; i--) {
