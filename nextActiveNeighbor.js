@@ -16,7 +16,7 @@ let grid4 = [ ["x","x","x"],
 
 
 function computeNext(grid) {
-    let newGrid = new Array(grid.length).fill([]);
+    let newGrid = grid.map(elem => []);
 
     for (let i = 0; i < grid.length; i++) {
         const row = grid[i];
@@ -24,14 +24,18 @@ function computeNext(grid) {
             let numActiveCells = countActiveCell(grid, [i, j]);
             let cell = row[j];
             let isActive = isCellActive(cell);
-            console.log("this is active cells: ",numActiveCells);
-            console.log("this is a cell: ", cell);
-            console.log("is this active: ", isActive);
             if (isActive && numActiveCells < 2) {
                 cell = " ";
-                console.log("this is turning the cell inactive: ", cell);
             } 
-            console.log("before in newGrid: ", cell);
+            if (isActive && (numActiveCells === 2 || numActiveCells === 3)) {
+                cell = "x";
+            }
+            if (isActive && numActiveCells > 3) {
+                cell = " ";
+            }
+            if (!isActive && numActiveCells === 3) {
+                cell = "x";
+            }
             newGrid[i][j] = cell;
         }
     }
@@ -102,7 +106,7 @@ function isCellActive(e) {
 //     }
 // }
 
-// console.log("The answer should be: ",computeNext(grid1));
+console.log("The answer should be: ",computeNext(grid1));
 console.log("The answer should be: ",computeNext(grid2));
-// console.log("The answer should be: ",computeNext(grid3));
-// console.log("The answer should be: ",computeNext(grid4));
+console.log("The answer should be: ",computeNext(grid3));
+console.log("The answer should be: ",computeNext(grid4));
