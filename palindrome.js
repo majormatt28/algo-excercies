@@ -11,4 +11,4 @@ function palidrome(string) {
     return true;
 }
 
-palidrome(myPali);
+console.log(palidrome(myPali));
