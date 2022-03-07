@@ -67,8 +67,8 @@ let competitions1 =  [
 let results1 = [-8, 0, 2, 0, -4, 10];
 
 
-const homeTeamWins = 1;
-const awayTeamWins = -1;
+const HOME_TEAM_WINS = 1;
+const AWAY_TEAM_WINS = -1;
 
 function tournamentWinner(competitions, results) {
     let talliedScores = tallyScores(competitions, results);
