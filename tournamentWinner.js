@@ -109,6 +109,7 @@ function tallyPoints(competitions, results) {
         let result = results[i];
         let competition = competitions[i];
         
+        
     }
 }
 
@@ -126,6 +127,8 @@ function findCompWinner(competition,result) {
 
     if (result === 1){
         return homeTeam;
+    } else if(result === result) {
+        return null;
     } else {
         return awayTeam;
     }
