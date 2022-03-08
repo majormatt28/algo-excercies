@@ -103,6 +103,15 @@ function tallyScores(competitions, results) {
     return tally;
 }
 
+function tallyPoints(competitions, results) {
+    let tally = {};
+    for(let i = 0; i < competitions.length; i++) {
+        let result = results[i];
+        let competition = competitions[i];
+        
+    }
+}
+
 function tallyNumWins(competitions, results) {
     let tally = {};
     for(let i = 0; i < competitions.length; i++) {
