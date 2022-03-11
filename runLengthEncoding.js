@@ -4,7 +4,7 @@ function runLengthEncoding (string) {
     let encodedString = "";
     let counter = 1;
     let letter = string[1];
-    for(let i = 1; i < string.length - 1; i++) {
+    for(let i = 1; i < string.length; i++) {
         let currentLetter = string[i];
         if(currentLetter === letter) {
             console.log("this is current letter:",currentLetter);
