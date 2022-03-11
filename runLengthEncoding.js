@@ -1,7 +1,7 @@
 let myString = "UUUUUUUUIKDCKWWWWW"
 
 function runLengthEncoding (string) {
-    let encoded = "";
+    let encodedString = "";
     let counter = 1;
     let letter = string[1];
     for(let i = 1; i < string.length - 1; i++) {
@@ -12,11 +12,15 @@ function runLengthEncoding (string) {
             counter++;
             console.log("this is counter", counter);
         } else {
-            encoded += (counter + letter);
-            console.log("this is encoded", encoded);
+            encodedString += (counter + letter);
+            console.log("this is letter", letter);
+            console.log("this is current letter", currentLetter);
+            counter = 1;
+            letter = currentLetter;
+            console.log("this is encoded", encodedString);
         }
     }
-    return encoded;
+    return encodedString;
 }
 
 let encoded = runLengthEncoding(myString);
