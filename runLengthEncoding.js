@@ -20,6 +20,7 @@ function runLengthEncoding (string) {
             console.log("this is encoded", encodedString);
         }
     }
+    encodedString += (counter + letter);
     return encodedString;
 }
 
