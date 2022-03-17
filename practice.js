@@ -8,7 +8,7 @@ function formatRecords( studentsRecordDetails ) {
   })
 	.filter(function(student) {
 	    console.log('Filter: ', student.graduating);
-   		return student.graduating;
+   		return student.graduating && student.studentId;
   })
   .reduce(function (accumulator, currentValue, index) {
 	   // console.log('Reduce: ');
