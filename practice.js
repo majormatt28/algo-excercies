@@ -11,7 +11,6 @@ function formatRecords( studentsRecordDetails ) {
    		return student.graduating && student.studentId;
   })
   .reduce(function (accumulator, currentValue, index) {
-	   // console.log('Reduce: ');
 	    console.log('Reduce: ', accumulator);
 	    console.log('currentValue: ', currentValue);
 	    console.log("What is the index:",index);
