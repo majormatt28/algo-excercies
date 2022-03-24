@@ -19,8 +19,6 @@ let inputA = ['{"studentId": 7530, "name": "Robert Lee", "graduating": true}','{
 //   return;
 // }
 
-
-
 function formatRecords (studentsRecordDetails) {
     let newArray = [];
     for(let i = 0; i < studentsRecordDetails.length; i++) {
@@ -42,24 +40,26 @@ function filterStudents (students) {
     return newArray;
 }
 
-function concatenateStudents (students) {
-    let newArray = [];
-    for(let i = 0; i < students.length; i++) {
-        let student = students[i];
-        newArray.push(student.name);
-    }
-    return newArray.join(", ");
-}
-
-// alternate concatenateStudents 
-// function concatenateStudents (students){
-//     let accumulator = "";
+// function concatenateStudents (students) {
+//     let newArray = [];
 //     for(let i = 0; i < students.length; i++) {
 //         let student = students[i];
-//         accumulator = accumulator + student.name;
+//         newArray.push(student.name);
 //     }
-//     return accumulator;
+//     return newArray.join(", ");
 // }
+
+
+// alternate concatenateStudents 
+function concatenateStudents (students){
+    let accumulator = "";
+    for(let i = 0; i < students.length; i++) {
+        let student = students[i];
+        accumulator = accumulator + student.name + ", ";
+        console.log("this is the accumulator: ", accumulator)
+    }
+    return accumulator;
+} 
 
 
 let result = formatRecords(inputA);
