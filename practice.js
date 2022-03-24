@@ -52,11 +52,13 @@ function filterStudents (students) {
 
 // alternate concatenateStudents 
 function concatenateStudents (students){
+    // let accumulator = students[0].name;
     let accumulator = "";
     for(let i = 0; i < students.length; i++) {
         let student = students[i];
-        accumulator = accumulator + student.name + ", ";
-        console.log("this is the accumulator: ", accumulator)
+        accumulator = (accumulator ? accumulator + ", " : accumulator) + student.name;
+        // accumulator = accumulator + ", " + student.name;
+        // console.log("this is the accumulator: ", accumulator)
     }
     return accumulator;
 } 
