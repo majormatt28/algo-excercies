@@ -22,17 +22,44 @@ let inputA = ['{"studentId": 7530, "name": "Robert Lee", "graduating": true}','{
 
 
 function formatRecords (studentsRecordDetails) {
-    filterStudents(studentsRecordDetails);
-    return studentsRecordDetails.map(student => JSON.parse(student));
+    let newArray = [];
+    for(let i = 0; i < studentsRecordDetails.length; i++) {
+        let student = JSON.parse(studentsRecordDetails[i]);
+        newArray.push(student);
+    }
+    let filteredStudents = filterStudents(newArray);
+    return concatenateStudents(filteredStudents);
 }
 
-function filterStudents (student) {
-    return student.graduating && student.studentId;
+function filterStudents (students) {
+    let newArray = [];
+    for(let i = 0; i < students.length; i++) {
+        let student = students[i];
+        if(student.graduating && student.studentId) {
+            newArray.push(student);
+        }
+    }
+    return newArray;
 }
 
+function concatenateStudents (students) {
+    let newArray = [];
+    for(let i = 0; i < students.length; i++) {
+        let student = students[i];
+        newArray.push(student.name);
+    }
+    return newArray.join(", ");
+}
 
-
-
+// alternate concatenateStudents 
+// function concatenateStudents (students){
+//     let accumulator = "";
+//     for(let i = 0; i < students.length; i++) {
+//         let student = students[i];
+//         accumulator = accumulator + student.name;
+//     }
+//     return accumulator;
+// }
 
 
 let result = formatRecords(inputA);
