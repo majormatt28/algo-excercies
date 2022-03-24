@@ -56,6 +56,9 @@ function concatenateStudents (students){
     let accumulator = "";
     for(let i = 0; i < students.length; i++) {
         let student = students[i];
+
+        // * adding the ternary helps prevent the ` , ` from being added IN FRONT of the accumulator
+        // * student.name comes after the accumulator and the `,`
         accumulator = (accumulator ? accumulator + ", " : accumulator) + student.name;
         // accumulator = accumulator + ", " + student.name;
         // console.log("this is the accumulator: ", accumulator)
