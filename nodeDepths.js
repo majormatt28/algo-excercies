@@ -94,13 +94,15 @@ class BinaryTree {
   function nodeDepths(root, level) {
     let sumOfDepths = 0;
     if (root.left) {
-       nodeDepths(root.left, level + 1);
+      nodeDepths(root.left, level + 1);
     }
     console.log(root.value, level);
     if (root.right) {
-        nodeDepths(root.right, level + 1);
+      nodeDepths(root.right, level + 1);
     }
-//    sumOfDepths = nodeDepths(root.left, level + 1) + nodeDepths(root.right, level + 1);
+   sumOfDepths = nodeDepths(root.left, level + 1) + nodeDepths(root.right, level + 1) + level;
+
+   return sumOfDepths;
   }
 
   
